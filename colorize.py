@@ -8,6 +8,8 @@ def testModel(modelpath, modelNo, imagepath):
     print(modelpath)
     model = tf.keras.models.load_model(modelpath)
     img = cv2.imread(imagepath)
+    w = img.shape[0]
+    h = img.shape[1]
     img = cv2.resize(img, (128, 128), interpolation=cv2.INTER_AREA)
     imgLAB = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
     L, a, b = cv2.split(imgLAB)
@@ -35,6 +37,7 @@ def testModel(modelpath, modelNo, imagepath):
     print(b.shape, L.shape)
     imgLAB = cv2.merge([L, a, b])
     image = cv2.cvtColor(imgLAB, cv2.COLOR_LAB2BGR)
+    image = cv2.resize(image, (h, w), interpolation=cv2.INTER_AREA)
     cv2.imwrite('result.jpg', image)
 
 
