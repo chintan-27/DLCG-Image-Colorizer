@@ -6,7 +6,8 @@ import sys
 def testModel(modelpath, modelNo, imagepath):
   model = tf.keras.models.load_model(modelpath)
   img = cv2.imread(imagepath)
-  imgLAB = cv2.cvtColor(i, cv2.COLOR_BGR2LAB)
+  img = cv2.resize(img, (128, 128), interpolation = cv2.INTER_AREA)
+  imgLAB = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
   L, a, b = cv2.split(imgLAB)
   L = L / 255
   L = L.reshape(1, 1, 128, 128)
