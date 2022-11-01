@@ -1,0 +1,25 @@
+Instructions to run the code: 
+
+1) Start Jupyter Server.
+
+2)Make sure these Libraries are installed:
+    - tensortlow-gpu / tensorflow
+    - opencv-python
+    - numpy
+    - Pandas
+    - Matplotlib
+
+3) Open the Jupyter Notebook that has to be run.
+
+4) Run each cell in the order it is displayed.
+
+5) Wait for the training to complete.
+
+6) For colorizing an image run this in the terminal: 
+   ` python colorize.py [model path] [image path][modelno] `
+        Here, the model Number is
+        0 for ReLU model
+        1 for Tanh colorizer model
+        2 for Tanh Transfer Learning model
+        
+7)The result will be saved as “Result.jpg”
